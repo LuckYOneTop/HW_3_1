@@ -9,55 +9,42 @@ namespace HW_3_1
     {
         static void Main(string[] args)
         {
-            List<string> myList = new List<string>();
-            Console.WriteLine("Метод Add");
-            myList.Add("Mersedes");
-            myList.Add("BMW");
-            myList.Add("Audi");
-            myList.Add("Mclaren");
+            MyList<int> list = new MyList<int>();
+            list.Add(21);
+            list.Add(42);
+            list.Add(15);
+            list.Add(18);
+            list.Add(19);
+            list.Add(20);
 
+            List<int> numbers = new List<int> { 1, 2, 3, 4, 5 };
+            numbers.Remove(x => x % 2 == 0);
 
-
-            foreach (string item in myList)
+            foreach (var number in numbers)
             {
-                Console.WriteLine(item);
+                Console.WriteLine(number);
             }
 
-            Console.WriteLine("===============================");
-            Console.WriteLine("Метод Remove");
-            myList.Remove("BMW");
-            foreach (string item in myList)
+
+            List<int> numbers1 = new List<int> { 1, 2, 3, 4, 5 };
+            numbers.RemoveAt(2);
+
+            foreach (var number in numbers)
             {
-               Console.WriteLine(item); 
+                Console.WriteLine(number);
             }
-            Console.WriteLine("==========================");
-            Console.WriteLine("Метод RemoveAt");
-            myList.Insert(1, "Honda");
-            myList.RemoveAt(2);
-            foreach (string item in myList)
-            {
-                Console.WriteLine(item);
-            }
-            Console.WriteLine("==========================");
-            Console.WriteLine("Метод Sort");
-            myList.Sort();
-            foreach(string item in myList)
-            {
-                Console.WriteLine(item);
-            }
-            Console.WriteLine("==========================");
-            Console.WriteLine("Метод AddRange");
-            string[] socialNetoworksArray = { "YouTube", "Facebook", "Instagram", "Twitter" };
-            List<string> socialNetoworks = new List<string>();
-            myList.AddRange(socialNetoworks);
+            List<int> numbers2 = new List<int> { 18, 21, 38, 47, 55, 66, 31, };
+            numbers.Sort((x, y) => x.CompareTo(y));
 
+            foreach (var number in numbers)
+                Console.WriteLine(number);
 
+            List<int> numbers3 = new List<int> { 97, 98, 99 };
+            IEnumerable<int> moreNumbers = new List<int> { 100, 101, 102 };
+            numbers.AddRange(moreNumbers);
 
-
-
-
-
-
+            foreach (var number in numbers)
+                Console.WriteLine(number);
 
         }
     }
